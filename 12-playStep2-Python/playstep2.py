@@ -35,4 +35,50 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	handlist = [int(i) for i in str(hand)]
+	dicelist = [int(j) for j in str(dice)]
+	one = []
+	one_ = ""
+	two = ""
+	# for i in handlist:
+	count = -1
+	while count<len(handlist):
+		for i in handlist:
+			if handlist[count] == handlist[count+1]:
+		# if handlist.count(i) == 2:
+				print(i)
+				one.append(i)
+				one.append(i)
+				one.append(dicelist[-1])
+				dicelist.pop()
+				one.sort(reverse=True)
+				for i in one:
+					one_ += str(i)
+				# one = str(max(handlist)) + str(dicelist[-1]) + str(dicelist[-2])
+				for i in dicelist:
+					two += str(i)
+				return int(one_), int(two)
+			else:
+				count+=1
+				continue
+
+		if handlist.count(i)==1:
+			one.append(max(handlist))
+			one.append(dicelist[-1])
+			dicelist.pop()
+			one.append(dicelist[-1])
+			dicelist.pop()
+			one.sort(reverse=True)
+			for i in one:
+				one_ += str(i)
+			# print(one_)
+			# one = str(max(handlist)) + str(dicelist[-1]) + str(dicelist[-2])
+			for i in dicelist:
+				two += str(i)
+			return int(one_), int(two)
+		
+# print(playstep2(412,2312))
+
+
+
+	
