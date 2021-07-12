@@ -7,4 +7,5 @@
 
 def handtodice(hand):
 	# your code goes here
-	pass
+	# alist = (hand//100, (hand%100)//10, (hand%10))
+	return (hand//100, (hand%100)//10, (hand%10))
