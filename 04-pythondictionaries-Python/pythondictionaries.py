@@ -40,19 +40,45 @@ def sortUSA():
 def alphaAsia():
     
     '''Return all the cities in Asia continent in alphabetical order'''
-    Asialist = locations['Asia']
-    countrylist=[]
+    Asialist= locations['Asia']
+    countrydictlist=[]
     citylist=[]
-    for key in Asialist:
-        return key
-    #     for key in Asialist[i]:
-    #         countrylist.append(key)
-    #         citylist.append(i[key])
-    # return countrylist,citylist
+    countrydictlist.append(locations['Asia'])
+    for dictionary in countrydictlist:
+        countrylist = list(dictionary.keys())
+        citylist_ = list(dictionary.values())
+        # citylist_.append
+    for i in range(0,len(citylist_)):
+        citylist.append(citylist_[i][0])
+    citylist.sort()
+    # for i in citylist:
+    result =[]
+    for i in citylist:
+        
+        print(i)
+        x= ''
+        x += i 
+        print(x)
+        x += " - " 
+        x+= countrylist[(citylist.index(i))]
+        print('x:',x)
+        result.append(x)
+        print(result)
+            # x = i
+        
+    
+    return result
+    
+
     # return ['Bangalore - India', 'Shanghai - China']
 
+
+
 # Note: Check for test cases to understand the output format.
-locations = {'North America': {'USA': ['Mountain View','Atlanta']}, 
-            'Asia':[{'India': ['Bangalore']},{'China':['Shanghai']}]}
+locations = {'North America': {'USA': ['Mountain View']}}
+locations['Asia']={'India':['Bangalore']}
+locations['North America']['USA'].append('Atlanta')
+locations['Africa']={'Egypt':['Cairo']}
+locations['Asia']['China']=['Shanghai']
 
 print(sortUSA(), alphaAsia())
