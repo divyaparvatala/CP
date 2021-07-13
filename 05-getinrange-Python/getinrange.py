@@ -5,5 +5,14 @@
 # or if x is greater than the upper bound, return the upper bound.
 
 def fun_getinrange(x, bound1, bound2):
+	boundlist = [bound1,bound2]
+	boundlist.sort()
+	if x<boundlist[0]:
+		return boundlist[0]
+	elif x>boundlist[1]:
+		return boundlist[1]
+	else:
+		return x
+
 	# your code goes here
-	return -1
+	# return -1
