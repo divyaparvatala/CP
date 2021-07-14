@@ -4,5 +4,14 @@
 # The second or further occurrence of duplicate should be removed.
 
 def removeduplicate(text):
-	# Your code goes here
-	pass
+	textlist = [i for i in text]
+	res = []
+	for i in textlist:
+		if i not in res:
+			res.append(i)
+	resstr = ''
+	for i in res:
+		resstr+=i
+	return resstr
+
+print(removeduplicate('JavaPython'))
