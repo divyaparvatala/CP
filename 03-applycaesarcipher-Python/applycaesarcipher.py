@@ -11,7 +11,31 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
+	lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+	upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+	msglist = [i for i in msg]
+	shiftmsglist = []
+	shiftmsg = ''
+	for i in msg:
+		if i in lower:
+			print(i)
+			i = lower[(lower.index(i)+shift)%26]
+			print(i)
+			shiftmsglist.append(i)
+		elif i in upper:
+			print(i)
+			i = upper[(upper.index(i)+shift)%26]
+			print(i)
+			shiftmsglist.append(i)
+		else:
+			print(i)
+			shiftmsglist.append(i)
+	for i in shiftmsglist:
+		shiftmsg += i
+
+
+	return shiftmsg
+print(fun_applycaesarcipher("We Attack", 1))
 
 
 
