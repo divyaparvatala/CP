@@ -9,11 +9,35 @@
 
 # If n is negative, return 0. Similarly, if k is negative, 
 # return 0.
+import pytest
 
 def powerSum(n, k):
+    if n<0 or k<0 :
+        return 0
+    elif n==0 and k==0:
+        return 0
+    else:
+        sum = 0
+        for i in range(n+1):
+            sum+=(i**k)
+            print(sum)
+        return sum
     # Your code goes here...
-    return 0
+    # return 0
 
 # Write your own test cases here...
+@pytest.mark.parametrize('n, k, sum', [
+    (0, 0, 0),
+    (-1, 1, 0),
+    (1, -1, 0),
+    (5, 2, 55),
+    (3, 5, 276),
+])
+def test(n,k,sum):
+    assert powerSum(n,k) == sum
+    # assert powerSum(-1,1) == 0
+    # assert powerSum(1,-1) == 0
+    # assert powerSum(5,2) == 55
 
-print ("All test cases passed...")
+
+print ("All test cases passed...") 
