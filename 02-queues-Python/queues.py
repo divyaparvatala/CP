@@ -11,18 +11,18 @@ class Queue:
 
     def enqueue(self, new_element):
         self.storage.append(new_element)
-        self.storage.append(new_element)
+        # self.storage.append(new_element)
         # pass
 
     def peek(self):
-        if len(self.storage) == 0:
-            return None
-        else:
-            return self.storage[0]
+        # if len(self.storage) == []:
+        #     return None
+        # else:
+        return self.storage[0]
         # pass 
 
     def dequeue(self):
-        if len(self.storage) != 0:
-            self.storage.pop(0)
-            return self.storage[0]
+        if len(self.storage) != []:
+            
+            return self.storage.pop(0)
         # pass
