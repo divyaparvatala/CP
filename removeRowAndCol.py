@@ -20,9 +20,25 @@
 # result
 # [ [ 2, 3, 5],
 #   [ 0, 1, 3] ]
+import pytest
 
 def removeRowAndCol(L, row, col):
+    # print(L)
+    for i in L:
+        i.pop(col)
+        # print(L)
+    L.pop(row)
+    return L
     # Your code goes here...
-    pass
+    # pass
 
+# print(removeRowAndCol([ [ 2, 3, 4, 5], [ 8, 7, 6, 5], [ 0, 1, 2, 3]],1,2))
 # Write your own test cases.
+@pytest.mark.parametrize('L, row, col, res', [
+    ([ [ 2, 3, 4, 5], [ 8, 7, 6, 5], [ 0, 1, 2, 3]],1,2,[ [ 2, 3, 5], [ 0, 1, 3] ])
+    ([ [ 2], [ 8], [ 0]],0,0, [[0]])
+    ([ [ 2, 3, 4, 5], [ 8, 7, 6, 5], [ 0, 1, 2, 3]],3,[[2,3,5],[8,7,6]])
+    ([ [ 2, 3, 4], [ 8, 7, 6, 5], [ 0, 1, 2, 3, 5]],1,2,[[2,3],[0,1,3,5]])
+])
+def test(L, row, col,res):
+    assert removeRowAndCol(L, row, col) == res
