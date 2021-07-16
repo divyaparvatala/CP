@@ -6,10 +6,24 @@
 # are not legal values, return None, instead of crashing. 
 import math
 
+def factorial(n):
+	product = 1
+
+	for i in range(1,n+1):
+		product=product*i
+		# print(product)
+	return product
+
+
 def nCk(n,k):
-	nfactorial = math.factorial(n)
-	kfatorial = math.factorial(k)
-	nmkfactorial = math.factorial(n-k)
+	nfactorial = factorial(n)
+	kfatorial = factorial(k)
+	nmkfactorial = factorial(n-k)
+
+
+	# nfactorial = math.factorial(n)
+	# kfatorial = math.factorial(k)
+	# nmkfactorial = math.factorial(n-k)
 	return nfactorial/(kfatorial*nmkfactorial)
 
 
