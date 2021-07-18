@@ -41,6 +41,14 @@ class LinkedList(object):
         "Delete the first (head) element in the LinkedList as return it"
         # pass
 
+    def search(self, element):
+        current= self.head
+        while current:            
+            if current.value == element:
+                return True
+            current = current.next
+        return False
+
 class stack(object):
     def __init__(self,top=None):
         self.ll = LinkedList(top)
