@@ -10,5 +10,27 @@
 
 
 def shortenlongruns(L, k):
-	# Your code goes here
-	pass
+	res =[]
+	for i in L:
+		if len(res)<=k:
+			res.append(i)
+		else:
+			count=-1
+			print(res)
+			while count>-k:
+			# for j in range(-(k),-1):
+				if i == res[count]:
+					print(i,count)
+					count-=1
+					
+				else:
+					# print(i,j)
+					res.append(i)
+					# count-=1
+			# print(res)
+					break	
+
+	print(res)
+	return res
+
+print(shortenlongruns([2, 3, 5, 5, 5, 3], 3))
