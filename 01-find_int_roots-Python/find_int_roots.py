@@ -8,6 +8,7 @@
 
 import math
 def fun_find_int_roots(a, b, c):
-	return 0, 0
+	val = (((b)**2 - 4*a*c)**(0.5))
+	return -(b+val)/2*a, -(b-val)/2*a
 
 
