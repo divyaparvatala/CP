@@ -6,5 +6,14 @@
 # numberOfPoolBallRows(7) returns 4 (since the 4th row must have a single ball in it).
 
 def fun_numberofpoolballrows(balls):
-	return 0
+	# print(math.ceil((((1+8*balls)**(0.5)))/2))
+	val = ((((1+8*balls)**(0.5)))/2)
+	if val%1 >0.5:
+		print(val%1)
+		return int(val)+1
+	else:
+		return int(val)
 
+
+
+# print(fun_numberofpoolballrows(7))
