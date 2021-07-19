@@ -9,6 +9,13 @@ class HashTable(object):
     def store(self, string):
         """Input a string that's stored in 
         the table."""
+        stringlist = [i for i in string]
+        hashvalue = ord(stringlist[0])+ord(stringlist[1])
+        key = hashvalue/len(stringlist)
+        
+
+
+
         # Hash Value = (ASCII Value of First Letter * 100) + ASCII Value of Second Letter 
         # Your code goes here
         pass
