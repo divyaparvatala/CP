@@ -17,7 +17,7 @@ class HashTable(object):
     def store(self, string):
         """Input a string that's stored in 
         the table."""
-        hashvalue = calculate_hash_value(self, string)
+        hashvalue = self.calculate_hash_value(string)
         self.table[hashvalue] = string
         print([string],(string))
 
@@ -30,12 +30,11 @@ class HashTable(object):
         string is already in the table.
         Return -1 otherwise."""
         # Your code goes here
-        hashvalue = calculate_hash_value(self,string)
+        hashvalue = self.calculate_hash_value(string)
         if string==self.table[hashvalue]:
             return hashvalue
         else:
             return -1
 
-
-print(calculate_hash_value(UDACITY))
+print(HashTable.calculate_hash_value(object,'UDACITY'))
 
