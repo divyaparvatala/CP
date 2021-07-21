@@ -18,5 +18,21 @@
 # assert(ishappynumber(405) == False)
 
 def ishappynumber(n):
-	# your code goes here
-	pass
+    # your code goes here
+
+	if n<=0:
+		return False
+	else:
+		count = 0
+		# while count<10:
+		while n > 1:
+			nlist = [int(i) for i in str(n)]
+			n=0
+			for i in nlist:
+				n += i**2
+				count +=1
+				if count ==10:
+					return False
+		return True
+    # return False
+print(ishappynumber(4))
