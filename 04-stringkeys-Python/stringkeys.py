@@ -10,8 +10,8 @@ class HashTable(object):
         """Helper function to calulate a
         hash value from a string."""
         # Your code goes here
-        stringlist = [i for i in string]
-        hashvalue = ord(stringlist[0])*100 +ord(stringlist[1])
+        # stringlist = [i for i in string]
+        hashvalue = ord(string[0])*100 +ord(string[1])
         return hashvalue
 
     def store(self, string):
