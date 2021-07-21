@@ -14,6 +14,40 @@
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
 
+def ishappynumber(n):
+    # your code goes here
+	if n<=0:
+		return False
+	else:
+		count = 0
+		# while count<10:
+		while n > 1:
+			nlist = [int(i) for i in str(n)]
+			n=0
+			for i in nlist:
+				n += i**2
+				count +=1
+				if count ==100:
+					return False
+		return True
 
 def nth_happy_number(n):
-	return 0
+	number = 0
+	count = 1
+	while count < n+1:
+		if ishappynumber(number) == True:
+			if count==n:
+				return number
+			else:
+				count +=1
+				print('hp:',count, number)
+				number +=1
+			
+		else:
+			number +=1
+			print('not hp', count, number)
+	# return number
+
+	# return 0
+print(nth_happy_number(3))
+# print(ishappynumber(7))
