@@ -9,5 +9,48 @@
 
 import math
 
+def fun_kaprekarnumber(n):
+    m = n**2
+    length = len(str(m))
+    if length%2==0:
+        m1 = m//(10**(length/2))
+        while m1%10==0:
+            m1=m1/10
+        m2 = m%(10**(length/2))
+    else:
+        m1 = m//(10**((length+1)/2))
+        print(m1)
+        if m1!=0:
+            while m1%10==0:
+                m1=m1/10
+        # print('length, m1, length/2', length, m1, (length+1)/2)
+        m2 = m%(10**((length+1)/2))
+        # print('length, m2, length/2', length, m2, (length+1)/2)
+    # print(m,m1,m2)
+    if int(m1+m2) == n:
+        # print(n,m1,m2,int(m1+m2))
+        return True
+    else:
+        # print(n,m1,m2,int(m1+m2))
+        return False
+
 def fun_nth_kaprekarnumber(n):
-    return 1;
+    count = -1
+    num = 1
+    while count<n:
+        if fun_kaprekarnumber(num)==True:
+            if count == n:
+                return num-1
+            else:
+                count+=1
+                num+=1
+        else:
+            # if count
+            num+=1
+            continue
+            
+    return num-1
+
+
+print(fun_kaprekarnumber(45))
+# print(fun_nth_kaprekarnumber(10))
