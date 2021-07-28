@@ -15,6 +15,33 @@
 # None if the two matrices 
 # cannot be added because they are of different dimensions.
 
+def ismatrix(L):
+	lrows = len(L)
+	if lrows == 1 and 
+	for i in range(lrows-1):
+		if len(L[i]) != len(L[i+1]):
+			return False
+		return True
+
+
 def matrixadd(L, M):
-	# Your code goes here
-	pass
+	if ismatrix(L) == True and ismatrix(M) == True:
+		lrows = len(L)
+		lcols = len(L[0])
+		mrows = len(M)
+		mcols = len(M[0])
+		if lrows != mrows or lcols != mcols:
+			return False
+		else:
+			N = [ [ 0 for i in range(0,lcols) ] for j in range(0,lrows) ]
+			print(N)
+			# return N
+			for i in range(0,lrows):
+				for j in range(0,lcols):
+					print (L[i][j], M[i][j])
+					N[i][j] = L[i][j]+M[i][j]
+
+			return N
+print(ismatrix([[1]]))
+# print(matrixadd([ [1,  2,  3],[4,  5,  6] ], [ [21, 22, 23], [24, 25, 26]]))
+	# pass
