@@ -7,5 +7,10 @@
 
 
 def fun_rotatestrings(s, n):
-	return s
+	n = n%(len(s))
+	res = ''
+	res += s[n:]
+	res += s[:n]
+	return res
 
+print(fun_rotatestrings('ac323', 8))
