@@ -15,33 +15,39 @@
 # None if the two matrices 
 # cannot be added because they are of different dimensions.
 
-def ismatrix(L):
-	lrows = len(L)
-	if lrows == 1 and 
-	for i in range(lrows-1):
-		if len(L[i]) != len(L[i+1]):
-			return False
-		return True
 
+def ismatrix(X):
+	rows = len(X)
+	cols = len(X[0])
+	# print(rows,cols)
+	if rows == 1 and cols == 1:
+		return True
+	else:
+		for i in range(rows-1):
+			# print('---')
+			if len(X[i])==len(X[i+1]):
+				return True
+			else:
+				return False
 
 def matrixadd(L, M):
-	if ismatrix(L) == True and ismatrix(M) == True:
+	if ismatrix(L) != True or ismatrix(M) != True:
+		return None
+	else:
 		lrows = len(L)
 		lcols = len(L[0])
 		mrows = len(M)
 		mcols = len(M[0])
-		if lrows != mrows or lcols != mcols:
-			return False
-		else:
-			N = [ [ 0 for i in range(0,lcols) ] for j in range(0,lrows) ]
-			print(N)
-			# return N
-			for i in range(0,lrows):
-				for j in range(0,lcols):
-					print (L[i][j], M[i][j])
+		M2 = M
+		N = M2
+		if lrows == mrows and lcols == mcols:
+			for i in range(lrows):
+				for j in range(lcols):
+					print('i,j: ',i,j)
+					print('bef  ',N[i][j])
 					N[i][j] = L[i][j]+M[i][j]
-
+					print('aft  ',N[i][j])
+					print(N)
 			return N
-print(ismatrix([[1]]))
-# print(matrixadd([ [1,  2,  3],[4,  5,  6] ], [ [21, 22, 23], [24, 25, 26]]))
-	# pass
+
+print(matrixadd([[1,  2,  3],[4,  5,  6]], [[21, 22], [24, 25, 26]]))
