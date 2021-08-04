@@ -11,4 +11,39 @@
 # functions to make nthHappyNumber(n) easier to write!
 def ishappyprimenumber(n):
     # Your code goes here
-    pass
+    # pass
+    if isprime(n)==True:
+        if isHappyNumber(n)==True:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def isHappyNumber(n):
+    if sumOfSquaresOfDigits(n)==1:
+        return True
+    elif sumOfSquaresOfDigits(n) <10:
+        return False
+    else:
+        return isHappyNumber(sumOfSquaresOfDigits(n))
+
+
+def isprime(n):
+    if n<2:
+        return False
+    elif n==2:
+        return True
+    elif n%2==0:
+        return False
+    else:
+        for i in range(3,n,2):
+            if n%i==0:
+                return False
+        return True
+
+def sumOfSquaresOfDigits(n):
+    nlist = [(int(i))**2 for i in str(n)]
+    return sum(nlist)
+        
+print(sumOfSquaresOfDigits(13))
