@@ -7,6 +7,62 @@
 # so fun_nthsmithnumber(0) should return 4
 # so fun_nthsmithnumber(1) should return 22
 
+def isprime(n):
+    if n == 2:
+        return True
+    elif n<2:
+        return False
+    elif n%2==0:
+        return False
+    else:
+        for i in range(3,n,2):
+            if n%i==0:
+                return False
+    return True
+
+def sumofdigits(n):
+    nlist = [int(i) for i in str(n)]
+    return sum(nlist)
+
+
+def smithnumber(n):
+    if(isprime(n)):
+        return False
+    elif(sumofdigits(n) == primefactors(n)):
+        return True
+    else:
+        return False
+
+def primefactors(n):
+    # i = 1
+    i = 2
+    sum = 0
+    l = []
+    while i**2 <= n:
+        if n % i == 0:
+            sum += sumofdigits(i)
+            l.append(i)
+            n //= i
+        else:
+            i += 1
+    if n > 1:
+        l.append(n)
+        sum += sumofdigits(n)
+    return sum
 
 def fun_nth_smithnumber(n):
-    return 1
+    count = 0
+    i = 1
+    while (count <= n):
+        if smithnumber(i):
+            count += 1
+            i+=1
+        else:
+            i+=1
+    return i-1
+
+# print(fun_nth_smithnumber(1))
+print(smithnumber(4))
+print(primefactors(4))
+print(sumofdigits(4))
+print(sumofdigits(4) == primefactors(4))
