@@ -16,18 +16,59 @@
 
 def topScorer(data):
     # Your code goes here...
-    return ""
+    # return ""
+    a = data.split("\n")
+    a.pop()
+    datalist =[]
+    for i in a:
+        x = i.split(",")
+        datalist.append(x)
+    namelist =[]
+    maxlist = []
+
+    for i in datalist:
+        namelist.append(i[0])
+        i.pop(0)
+        for j in i:
+            j = int(j)
+        m = max(i)
+        maxlist.append(m)
+
+    # x =  namelist[maxlist.index(max(maxlist))]
+    x = max(maxlist)
+    res =[]
+    i = 0
+    while i<len(maxlist):
+        print('==============================')
+        print(maxlist[i], x)
+        if maxlist[i] == x:
+            print('------------',i)
+            res.append(namelist[i])
+            i+=1
+        else:
+            i+=1
+
+        # if len(res)==1:
+        #     return res[0]
+        # else:
+        # print(res)
+        print(maxlist, namelist, res)
+        return ','.join(res)
+# print(topScorer(data))
 
 data = '''\
 Fred,10,20,30,40
 Wilma,10,20,30
 '''
+
+# print(topScorer(data))
 assert(topScorer(data) == 'Fred')
 
 data = '''\
 Fred,10,20,30
 Wilma,10,20,30,40
 '''
+print(topScorer(data))
 assert(topScorer(data) == 'Wilma')
 
 data = '''\
